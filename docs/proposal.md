@@ -10,16 +10,20 @@ Web Service
 -----------   
 [AdoptAPet](https://www.adoptapet.com/public/apis/pet_list.html)  
 Authentification Key is apiKey  
-  
+
+Shelter search: GET https://api.adoptapet.com/search/pets_at_shelter?key=A34F48&v=1&output=xml&shelter_id=2342
+
+Pet search by ID: GET https://api.adoptapet.com/search/pets_at_shelter?key=A34F48&v=1&output=xml&shelter_id=2342/pets/pet_id=12
+
+
 The endpoint URL is AdoptAPetFamily and I will use GET and POST methods.  
   
 Database Use
 ------------
-I will need these names of the pets, the type of animal they are, breeds if they  
-have them, age, and a description of them and their personality. The tables will  
-be Names, Animals, Breeds, Age, Description.  
-
-I will need a table for animals, people who have adopted an animal, maybe a table for  toys and food. Animals will be the name of the animals table, Customers will be for  people who have adopted, and Objects maybe will be the name of things that go with an  animal, I will think of a different name. The Customers will have CustomerID primary key that will be used as a foreign key for animals previously adopted. Each animal will have an object/objects they can be connected with by a ObjectID key.  
+I will need a table for shelters, and a table for pets.
+The table for shelters will have the shelter ID, address, and total pets. The shelter will have a one to many relationship with pets, where one shelter can have many pets, but one pet can only have one shelter. 
+The pets table will include things like the pet ID, name, sex, age, size, species, breed, and description. 
+I will need to read the shelter ID and then the pet ID, and write the things like name and age and such if thats what people are looking for in their search.
   
 Initial Designs
 ---------------
