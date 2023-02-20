@@ -14,9 +14,7 @@ Authentification Key is apiKey
 Shelter search: GET https://api.adoptapet.com/search/pets_at_shelter?key=A34F48&v=1&output=xml&shelter_id=2342
 
 Pet search by ID: GET https://api.adoptapet.com/search/pets_at_shelter?key=A34F48&v=1&output=xml&shelter_id=2342/pets/pet_id=12
-
-
-The endpoint URL is AdoptAPetFamily and I will use GET and POST methods.  
+ 
   
 Database Use
 ------------
