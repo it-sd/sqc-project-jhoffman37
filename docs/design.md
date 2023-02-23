@@ -6,4 +6,4 @@ Error prevention
 ----------------
 I would like to increase error prevention. Error prevention is not one of my strong points, and the code to do error messages is something I dont have much experience with yet. Making sure I dont have any errors or take in errors from users in the first place is important and I should focus on that too, along with implementing error messages. 
 
-![Error Prevention](../HeuristicsForProject.docx)  
+![Error Prevention](HeuristicsForProject.png)  
