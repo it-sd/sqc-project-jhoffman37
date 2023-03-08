@@ -66,14 +66,15 @@ express()
   .get('/about', function (req, res) {
     res.render('pages/about')
   })
-  .get('/health', function (req, res) {
-    const result = query('SELECT id FROM character;')
+  .get('/health', async function (req, res) {
+    const result = await queryAllTypeEntries('SELECT id FROM character;')
     if (result.length === 0) {
       res.status(500).send('Unhealthy')
     } else {
       res.status(200).send('Healthy')
     }
   })
+  
   
    try {
       const client = await pool.connect()
