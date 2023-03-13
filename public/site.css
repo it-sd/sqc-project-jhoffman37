@@ -1,0 +1,43 @@
+James Hoffman
+https://github.com/it-sd/sqc-project-jhoffman37.git
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+
+* {
+  font-size: 16pt;
+  font-family: "Iowan Old Style", "Hoefler Text", serif;
+  font-kerning: normal;
+}
+
+body {
+  color: #005;
+  background-color: #fefefe;
+  line-height: 1.2;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+  padding: 0 0.5em;
+  width: 10%;
+}
+
+input {
+  display: inline-block;
+  vertical-align: middle;
+  width: 70%;
+}
+
+main {
+  background-color: #eee;
+  border: 5px solid #333;
+  border-radius: 5px;
+  margin: 3em auto;
+  width: 50%;
+}
+
+
