@@ -75,6 +75,8 @@ express()
     }
   })
   
+  .post('/user', async function (req, res) {
+    res.set({ 'Content-Type': 'application/json' })
   
    try {
       const client = await pool.connect()

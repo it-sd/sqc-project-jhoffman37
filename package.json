@@ -153,6 +153,7 @@
     "path-is-absolute": "^1.0.1",
     "path-key": "^3.1.1",
     "path-parse": "^1.0.7",
+    "pg": "^8.10.0",
     "prelude-ls": "^1.2.1",
     "punycode": "^2.3.0",
     "queue-microtask": "^1.2.3",
@@ -189,7 +190,7 @@
     "wrappy": "^1.0.2",
     "yallist": "^4.0.0",
     "yocto-queue": "^0.1.0"
-  }
+  },
   "engines": {
     "node": "18.0.0"
   }
