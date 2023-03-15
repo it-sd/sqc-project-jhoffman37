@@ -148,4 +148,18 @@ express()
     }
   })
 
+.get('/toPetApi/:table/:id', async function (req, res) {
+    const baseURL = 'https://api.petfinder.com/v2/oauth2/token'
+
+    const response = await fetch(petRequest, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'X-Accept': 'application/json'
+      }
+    })
+
+  })
+
+
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
