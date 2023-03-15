@@ -28,18 +28,23 @@ const query = async function (sql, params) {
   return results
 }
 
-const queryAllTypeEntries = async function (table) {
-  const sql = `SELECT * FROM ${table};`
+const queryAllTypeEntries = async function () {
+  const sql = `SELECT name FROM shelters;`
   const results = await query(sql)
   return { entries: results }
 }
 
-const queryViewEntry = async function (table, id) {
-  const sql = `SELECT * FROM ${table} WHERE id = ${id};`
+const queryAllPets = async function () {
+  const sql = `SELECT id, name FROM pets;`
   const results = await query(sql)
-  return results.length ? results[0] : []
+  return { pet: results}
 }
 
+const queryAllShelters = async function () {
+  const sql = `SELECT address FROM shelters;`
+  const results = await query(sql)
+  return { shelter: results}
+}
 
 const getServerUrl = function (req) {
   const port = PORT === 80 ? "" : `:${PORT}`
@@ -49,8 +54,8 @@ const getServerUrl = function (req) {
 module.exports = {
   query,
   queryAllTypeEntries,
-  queryViewEntry
-
+  queryAllPets,
+  queryAllShelters
 }
 
 express()
@@ -60,15 +65,26 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', async function (req, res) {
-    const creator = await queryViewEntry('character', 1)
-    res.render('pages/index', creator)
+    const entries = await queryAllTypeEntries()
+    res.render('pages/index', entries)
   })
   .get('/about', function (req, res) {
     res.render('pages/about')
   })
+  .get('/shelters', async function (req, res) {
+    const shelter = await queryAllShelters()
+    res.render('pages/shelters', shelter)
+  })
+  .get('/pets', async function (req, res) {
+    const pet = await queryAllPets()
+    res.render('pages/pets', pet)
+  })
+  .get('/login', function (req, res) {
+    res.render('pages/login')
+  })
   .get('/health', async function (req, res) {
-    const result = await queryAllTypeEntries('SELECT id FROM character;')
-    if (result.length === 0) {
+    const entries = await queryAllTypeEntries()
+    if (entries.length === 0) {
       res.status(500).send('Unhealthy')
     } else {
       res.status(200).send('Healthy')

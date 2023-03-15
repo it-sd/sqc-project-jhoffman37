@@ -1,0 +1,16 @@
+<%- include('../shared/header.ejs') %>
+
+    <main>
+      <h2>Shelters</h2>
+      <p>
+        This is where you can see shelters and find out if any are near you.
+      </p>
+        </main>
+    <ol>
+    <%_ for (const shelters of shelter) { _%>
+      <li><%= shelters.address %></li> 
+    <%_ } _%>
+    </ol>
+  </main>
+</body>
+</html>

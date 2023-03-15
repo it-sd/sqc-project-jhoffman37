@@ -1,0 +1,16 @@
+<%- include('../shared/header.ejs') %>
+
+    <main>
+      <h2>Check out some Pets!</h2>
+      <p>
+        Here you can see a database of pets!
+      </p>
+    </main>
+    <ol>
+    <%_ for (const pets of pet) { _%>
+      <li><%= pets.name %></li> 
+    <%_ } _%>
+    </ol>
+  </main>
+</body>
+</html>

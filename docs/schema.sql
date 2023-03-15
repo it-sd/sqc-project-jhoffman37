@@ -22,10 +22,15 @@ CREATE TABLE pets (
     species varchar(25) DEFAULT NULL
 );
 
+CREATE TABLE userAccount (
+  id SERIAL PRIMARY KEY,
+  username TEXT NOT NULL,
+  password TEXT NOT NULL
+);
+
 INSERT INTO shelters (address) VALUES
 ('1519 Something Ave');
 
--- Insert values into devices table for Device
 INSERT INTO pets (name) VALUES
 ('Marlin'),
 ('Bebe');

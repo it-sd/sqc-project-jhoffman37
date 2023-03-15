@@ -1,0 +1,61 @@
+<%- include('../shared/header.ejs') %>
+
+    <main>
+      <h2>Login</h2>
+      <p>This is where you can login to your profile</p>
+      <p>GitHub: <a href="https://https://github.com/it-sd/sqc-project-jhoffman37">Adopt A Pet Family</a></p>
+    </main>
+    
+    </div>
+      <br>
+      <h4 id="acceptOrDenyStatus"></h4>
+      Username: <input type="text" id="username"><br>
+      Password: <input type="text" id="password"><br>
+      <input type="submit" id="submitButton" value="Submit">
+    </div>
+    
+    <script>
+    const acceptOrDenyStatus = document.getElementById('acceptOrDenyStatus')
+    const username = document.getElementById('username')
+    const password = document.getElementById('password')
+    const submitButton = document.getElementById('submitButton')
+    const checkIfValid = function () {
+      const isValid = true
+      if(username.value == "" || username.value == null){
+        return false
+      }
+      if(password.value == "" || password.value == null){
+        return false
+      }
+      return isValid
+    }
+    const submit = async function () {
+        if(checkIfValid()){
+            console.log('hithere')
+            const message = document.querySelector('h4')
+            const data = {
+                username: username.value,
+                password: password.value
+            }
+            const response = await fetch('/submit', {
+            method: 'POST',
+            headers: {
+            Accept: 'application/json', 'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(data)
+            })
+            if (response.ok) {
+            const result = await response.json()
+            if (result.ok) {
+                acceptOrDenyStatus.innerHTML = `Welcome ${username.value}!`
+                return
+            } 
+            } else {
+                acceptOrDenyStatus.innerHTML = `You shall not pass`
+            }
+        }
+    }
+    submitButton.addEventListener('click', (e) => submit())
+  </script>
+  </body>
+</html>
