@@ -22,6 +22,13 @@ CREATE TABLE pets (
     species varchar(25) DEFAULT NULL
 );
 
+CREATE TABLE cuteOrNot (
+  id SERIAL PRIMARY KEY,
+  pet_id INTEGER NOT NULL,
+  value FLOAT NOT NULL,
+  at TIMESTAMP WITH TIME ZONE
+);
+
 CREATE TABLE userAccount (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL,

@@ -11,6 +11,61 @@
       <li><%= pets.name %></li> 
     <%_ } _%>
     </ol>
+    
+    
+    
+    
+    
+    <details>
+      <div id="buttons">
+        <button id="Cute">Cute</button>
+        <div class="spacer"></div>
+        <button id="notCute">Not Cute</button> 
+      </div>
+    </details>
+    <footer>
+    </footer>
   </main>
+  
+  
+  
+  
+  
+  <script>
+const recordVote = async function (buttonId) {
+  document.querySelectorAll('button').forEach((b) => {
+    b.disabled = true
+  })
+
+  const data = {
+    petId: id,
+    cuteOrNot: buttonId
+  }
+
+  const response = await fetch('/cuteOrNot', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+
+  const buttons = document.getElementById('buttons')
+  if (response.ok) {
+    const result = await response.json()
+    if (result.ok) {
+      buttons.innerHTML = '<strong>Thank you for your vote!</strong>'
+      return
+    }
+  }
+  buttons.innerHTML = '<strong>We couldn\'t record your vote. Please try again later.</strong>'
+}
+
+document.querySelectorAll('button').forEach(function (b) {
+  b.addEventListener('click', recordVote.bind(null, b.id))
+})
+  </script>
+  
 </body>
 </html>
