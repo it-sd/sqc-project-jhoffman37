@@ -28,6 +28,32 @@ describe('pet server', function () {
   describe("GET '/'", function () {
     shouldBeLessThan399('/')
   })
+  describe("GET '/about'", function () {
+    shouldBeAbove200('/about')
+  })
+  describe("GET '/about'", function () {
+    shouldBeLessThan399('/about')
+  })
+  describe("GET '/pets'", function () {
+    shouldBeAbove200('/pets')
+  })
+  describe("GET '/pets'", function () {
+    shouldBeLessThan399('/pets')
+  })
+  describe("GET '/shelters'", function () {
+    shouldBeAbove200('/shelters')
+  })
+  describe("GET '/shelters'", function () {
+    shouldBeLessThan399('/shelters')
+  })
+  describe("GET '/login'", function () {
+    shouldBeAbove200('/login')
+  })
+  describe("GET '/login'", function () {
+    shouldBeLessThan399('/login')
+  })
+  
+  
   describe("POST '/user'", function () {
     const url = new URL('/user', baseUrl)
     it('should accept user info', async function () {
