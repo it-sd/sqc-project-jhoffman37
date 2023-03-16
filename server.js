@@ -91,6 +91,42 @@ express()
     }
   })
   
+  
+  .post('/cuteOrNot', async function (req, res) {
+    res.set({ 'Content-Type': 'application/json' })
+
+    try {
+      const client = await pool.connect()
+      const id = Number(req.body.petId)
+      
+      if (!Number.isInteger(id) || id < 1) {
+        console.error(`Unexpected pet id of ${req.body.petId}`)
+        res.status(400).json({ ok: false })
+        return
+      }
+
+      let cuteOrNot
+      if (req.body.cuteOrNot === 'Cute') cuteOrNot = 1
+      else if (req.body.cuteOrNot === 'notCute') cuteOrNot = 0
+      else {
+        console.error(`Unexpected input of ${req.body.cuteOrNot}`)
+        res.status(400).json({ ok: false })
+        return
+      }
+
+      const insertSql = `INSERT INTO cuteOrNot (pet_id, value, at)
+        VALUES ($1::INTEGER, $2::FLOAT, NOW());`
+      await client.query(insertSql, [id, cuteOrNot])
+  
+  res.json({ ok: true })
+      client.release()
+    } catch (err) {
+      console.error(err)
+      res.json({error: err})
+    }
+  })
+  
+  
   .post('/user', async function (req, res) {
     res.set({ 'Content-Type': 'application/json' })
   
@@ -112,4 +148,18 @@ express()
     }
   })
 
-  .listen(PORT, () => console.log(`Listening on ${PORT}`))
+.get('/toPetApi/:table/:id', async function (req, res) {
+    const baseURL = 'https://api.petfinder.com/v2/oauth2/token'
+
+    const response = await fetch(petRequest, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'X-Accept': 'application/json'
+      }
+    })
+
+  })
+
+
+  .listen(PORT, () => console.log(`Listening on ${PORT}`))))
