@@ -52,8 +52,7 @@ describe('pet server', function () {
   describe("GET '/login'", function () {
     shouldBeLessThan399('/login')
   })
-  
-  
+
   describe("POST '/userAccount'", function () {
     const url = new URL('/userAccount', baseUrl)
     it('should accept userAccount info', async function () {
