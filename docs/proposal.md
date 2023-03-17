@@ -14,12 +14,6 @@ Authentification Key is apiKey
 Shelter search: GET https://api.adoptapet.com/search/pets_at_shelter?key=A34F48&v=1&output=xml&shelter_id=2342
 
 Pet search by ID: GET https://api.adoptapet.com/search/pets_at_shelter?key=A34F48&v=1&output=xml&shelter_id=2342/pets/pet_id=12
-<<<<<<< HEAD
-
-  
-=======
- 
->>>>>>> ed4ebf22eacffd43e595ce95f6324435d1331785
   
 Database Use
 ------------
