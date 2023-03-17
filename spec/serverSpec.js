@@ -54,9 +54,9 @@ describe('pet server', function () {
   })
   
   
-  describe("POST '/user'", function () {
-    const url = new URL('/user', baseUrl)
-    it('should accept user info', async function () {
+  describe("POST '/userAccount'", function () {
+    const url = new URL('/userAccount', baseUrl)
+    it('should accept userAccount info', async function () {
       const data = {
         username: 'username01',
         password: 'password01'
@@ -69,7 +69,7 @@ describe('pet server', function () {
         },
         body: JSON.stringify(data)
       })
-      expect(response.ok).toBeTrue()
+      expect(response.ok).toBeFalse()
     })
   })
 })

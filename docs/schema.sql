@@ -1,5 +1,7 @@
 Drop table if exists shelters;
 Drop table if exists pets;
+Drop table if exists cuteOrNot;
+Drop table if exists userAccount;
 
 CREATE TABLE shelters (
     id SERIAL PRIMARY KEY,

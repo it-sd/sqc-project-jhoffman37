@@ -135,7 +135,7 @@ express()
       const username = req.body.username
       const password = req.body.password
 
-      const insertSql = `INSERT INTO users (user_username, user_password) VALUES ($1::TEXT, $2::TEXT);`
+      const insertSql = `INSERT INTO userAccount (username, password) VALUES ($1::TEXT, $2::TEXT);`
 
       console.log(insertSql, [username, password])
       await client.query(insertSql)
